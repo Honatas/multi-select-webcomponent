@@ -1,4 +1,4 @@
-export class Multiselect extends HTMLElement {
+export class MultiselectWebcomponent extends HTMLElement {
 
   options: HTMLOptionElement[] = [];
   searchbox: HTMLInputElement = document.createElement('input');
