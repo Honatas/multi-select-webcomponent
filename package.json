@@ -1,6 +1,6 @@
 {
   "name": "multi-select-webcomponent",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A fully styleable multiselect with no polyfills",
   "main": "dist/multi-select-webcomponent.cjs.js",
   "module": "dist/multi-select-webcomponent.esm.js",
@@ -12,10 +12,19 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deliver": "np"
   },
   "author": "Honatas (Jonatas de Moraes Junior)",
   "license": "MIT",
+  "keywords": [
+    "webcomponent",
+    "multiselect"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Honatas/multi-select-webcomponent"
+  },
   "devDependencies": {
     "rollup": "^2.46.0",
     "rollup-plugin-terser": "^7.0.2",

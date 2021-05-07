@@ -20,7 +20,7 @@ export class MultiselectWebcomponent extends HTMLElement {
     this.searchbox.addEventListener('keyup', (e) => this.onSearchboxKeyup(e));
 
     // Selected
-    this.selected.className = `multiselect-selected ${this.getAttribute('selectedclass') || ''}`;
+    this.selected.className = `multiselect-selected ${this.getAttribute('selected') || ''}`;
     this.selected.style.display = 'flex';
     this.selected.style.flexWrap = 'wrap';
     this.selected.style.flexGrow = '1';
@@ -29,7 +29,7 @@ export class MultiselectWebcomponent extends HTMLElement {
     this.buttons.style.display = 'flex';
     
     // Dropdown
-    this.dropdown.className = `multiselect-list ${this.getAttribute('dropdownclass') || ''}`;
+    this.dropdown.className = `multiselect-list ${this.getAttribute('dropdown') || ''}`;
     this.dropdown.style.display = 'none';
     this.dropdown.style.width = '100%';
     this.dropdown.style.position = 'absolute';
@@ -66,7 +66,7 @@ export class MultiselectWebcomponent extends HTMLElement {
     const item = document.createElement('div');
     item.style.userSelect = 'none';
     item.style.webkitUserSelect = 'none';
-    item.className = `multiselect-selecteditem ${this.getAttribute('selecteditemclass') || ''}`;
+    item.className = `multiselect-selecteditem ${this.getAttribute('selecteditem') || ''}`;
     item.innerHTML = option.textContent as string;
     item.dataset.value = option.value;
     item.addEventListener('click', (e) => this.onSelectedClick(e));
@@ -77,7 +77,7 @@ export class MultiselectWebcomponent extends HTMLElement {
     const item = document.createElement('div');
     item.style.userSelect = 'none';
     item.style.webkitUserSelect = 'none';
-    item.className = `multiselect-item ${this.getAttribute('itemclass') || ''}`;
+    item.className = `multiselect-item ${this.getAttribute('item') || ''}`;
     item.innerHTML = option.textContent as string;
     item.dataset.value = option.value;
     item.addEventListener('click', (e) => this.onItemClick(e));
@@ -86,8 +86,8 @@ export class MultiselectWebcomponent extends HTMLElement {
 
   private buildClearButton(): HTMLButtonElement {
     const buttonTitle = this.getAttribute('clearbuttontitle');
-    const buttonClass = this.getAttribute('clearbuttonclass');
-    const buttonSpanClass = this.getAttribute('clearbuttonspanclass');
+    const buttonClass = this.getAttribute('clearbutton');
+    const buttonSpanClass = this.getAttribute('clearbuttonspan');
     const button = document.createElement('button');
     if (buttonClass != null) {
       button.className = buttonClass;
@@ -106,8 +106,8 @@ export class MultiselectWebcomponent extends HTMLElement {
 
   private buildSelectAllButton(): HTMLButtonElement {
     const buttonTitle = this.getAttribute('selectallbuttontitle');
-    const buttonClass = this.getAttribute('selectallbuttonclass');
-    const buttonSpanClass = this.getAttribute('selectallbuttonspanclass');
+    const buttonClass = this.getAttribute('selectallbutton');
+    const buttonSpanClass = this.getAttribute('selectallbuttonspan');
     const button = document.createElement('button');
     if (buttonClass != null) {
       button.className = buttonClass;
