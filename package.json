@@ -9,7 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "gulp",
     "test": "echo \"Error: no test specified\" && exit 0",
     "deliver": "np"
   },
@@ -24,9 +24,11 @@
     "url": "https://github.com/Honatas/multi-select-webcomponent"
   },
   "devDependencies": {
-    "rollup": "^2.46.0",
-    "rollup-plugin-delete": "^2.0.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.30.0"
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-typescript": "*",
+    "gulp-uglify": "^3.0.2",
+    "typescript": "^4.2.4"
   }
 }
