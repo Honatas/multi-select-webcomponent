@@ -20,7 +20,7 @@ You can get it from npm:
 Or you can get it from a CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/multi-select-webcomponent/dist/multi-select-webcomponent.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@honatas/multi-select-webcomponent/dist/multi-select-webcomponent.min.js" crossorigin="anonymous"></script>
 ```
 
 ## Usage
@@ -58,7 +58,7 @@ Attribute                     | Target                                    |
 **selectallbuttonspan**       | "Select All" button's inner span          |
 **selectallbuttontitle**      | "Select All" button's title               |
 
-With exception of **clearbuttontitle** and **selectallbuttontitle**, all other attributes values are transcribed to the **class** attribute of their targets. This means if you want to add classes to every item that shows when you click the component, add the attribute **multiselect-item** to your tag and populate it with css classes of your own or from whichever lib you are using. You can see a fully styled example using [Bootstrap](https://getbootstrap.com/) on the Live Demo. TODO.  
+With exception of **clearbuttontitle** and **selectallbuttontitle**, all other attributes values are transcribed to the **class** attribute of their targets. This means if you want to add classes to every item that shows when you click the component, add the attribute **item** to your tag and populate it with css classes of your own or from whichever lib you are using. You can see a fully styled example using [Bootstrap](https://getbootstrap.com/) on the Live Demo. TODO.  
 
 
 

@@ -2,8 +2,6 @@
   "name": "multi-select-webcomponent",
   "version": "0.0.1",
   "description": "A fully styleable multiselect with no polyfills",
-  "main": "dist/multi-select-webcomponent.cjs.js",
-  "module": "dist/multi-select-webcomponent.esm.js",
   "browser": "dist/multi-select-webcomponent.js",
   "types": "dist/multi-select-webcomponent.d.ts",
   "files": [
@@ -27,6 +25,7 @@
   },
   "devDependencies": {
     "rollup": "^2.46.0",
+    "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0"
   }
