@@ -1,5 +1,5 @@
 {
-  "name": "multi-select-webcomponent",
+  "name": "@honatas/multi-select-webcomponent",
   "version": "0.0.1",
   "description": "A fully styleable multiselect with no polyfills",
   "browser": "dist/multi-select-webcomponent.js",
