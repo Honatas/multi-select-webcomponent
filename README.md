@@ -1,7 +1,7 @@
 # Multi Select Webcomponent
 
 [![GitHub](https://img.shields.io/github/license/honatas/multi-select-webcomponent?style=plastic)](https://github.com/Honatas/multi-select-webcomponent "View this project on GitHub")
-[![npm](https://img.shields.io/npm/v/multi-select-webcomponent?style=plastic)](https://npmjs.org/package/multi-select-webcomponent "View this project on npm")
+[![npm](https://img.shields.io/npm/v/multi-select-webcomponent?style=plastic)](https://npmjs.org/package/@honatas/multi-select-webcomponent "View this project on npm")
 [![typescript](https://img.shields.io/badge/made%20with-Typescript-blue?style=plastic)](https://www.typescriptlang.org/ "Try Typescript")
 [![coffee](https://img.shields.io/badge/buy%20me%20a-coffee-brown?style=plastic)](https://ko-fi.com/honatas "Buy me a coffee")
 
