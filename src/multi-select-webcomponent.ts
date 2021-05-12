@@ -142,6 +142,7 @@ class MultiselectWebcomponent extends HTMLElement {
     if (this.selected.querySelectorAll('.multiselect-selecteditem').length > 0) {
       this.buttons.appendChild(this.buildClearButton());
     }
+    this.dispatchEvent(new Event('change'));
   }
 
   private findOptionByValue(value: string | undefined): HTMLOptionElement | undefined {
