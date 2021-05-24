@@ -8,7 +8,7 @@
 
 A fully styleable multiselect with no polyfills.
 
-[Live demo ↗](https://jsfiddle.net/Honatas/k2fsy4Lc/19/)
+[Live demo ↗](https://jsfiddle.net/Honatas/k2fsy4Lc/28)
 
 ## Install
 
@@ -66,7 +66,7 @@ Tag attribute             |CSS class                     | Target               
 **selectallbutton**       |**.msw-selectallbutton**      | "Select All" button                    |
 **selectallbuttonspan**   |**.msw-selectallbuttonspan**  | "Select All" button's inner span       |
   
-So, if you want to add classes to every item that shows when you click the component, you can either add the attribute **dropdownitem** to your tag and populate it with css classes of your own or from whichever lib you are using, or create the **.msw-dropdownitem** class on your own css file. You can see a neatly styled example using [Bootstrap 5](https://getbootstrap.com) on the [Live demo](https://jsfiddle.net/Honatas/k2fsy4Lc/19).
+So, if you want to add classes to every item that shows when you click the component, you can either add the attribute **dropdownitem** to your tag and populate it with css classes of your own or from whichever lib you are using, or create the **.msw-dropdownitem** class on your own css file. You can see a neatly styled example using [Bootstrap 5](https://getbootstrap.com) on the [Live demo](https://jsfiddle.net/Honatas/k2fsy4Lc/28).
 
 Also, if you need to change the default titles for the buttons, you can add the following tag attributes:
 
@@ -74,6 +74,21 @@ Tag attribute             | Target                            |
 --------------------------|-----------------------------------|
 **clearbuttontitle**      | "Clear Selection" button's title  |
 **selectallbuttontitle**  | "Select All" button's title       |
+
+
+## Options
+
+You may realize that as soon as you render the component, your **option** tags will be removed from the DOM. This is desired, since other elements are going to be rendered in substitution to them. However, internal control is still made using those tags, so they are kept int memory and you can access them through javascprit. In the example above we create another option and add it to the component:
+
+```javascript
+const pluto = document.createElement('option');
+pluto.value = 9;
+pluto.innerHTML = 'Pluto';
+
+const msw = document.getElementById('planetIds');
+msw.options.push(pluto);
+msw.build();
+```
 
 
 ## Older browsers warning
