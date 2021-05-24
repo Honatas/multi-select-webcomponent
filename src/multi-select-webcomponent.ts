@@ -14,13 +14,14 @@ class MultiselectWebcomponent extends HTMLElement {
 
     // Search input
     this.searchbox.type = 'text';
+    this.searchbox.className = 'msw-searchbox';
     this.searchbox.style.flexGrow = '1';
     this.searchbox.style.border = '0';
     this.searchbox.style.outline = 'none';
     this.searchbox.addEventListener('keyup', (e) => this.onSearchboxKeyup(e));
 
     // Selected
-    this.selected.className = `multiselect-selected ${this.getAttribute('selected') || ''}`;
+    this.selected.className = `msw-selected ${this.getAttribute('selected') || ''}`;
     this.selected.style.display = 'flex';
     this.selected.style.flexWrap = 'wrap';
     this.selected.style.flexGrow = '1';
@@ -29,7 +30,7 @@ class MultiselectWebcomponent extends HTMLElement {
     this.buttons.style.display = 'flex';
     
     // Dropdown
-    this.dropdown.className = `multiselect-list ${this.getAttribute('dropdown') || ''}`;
+    this.dropdown.className = `msw-dropdown ${this.getAttribute('dropdown') || ''}`;
     this.dropdown.style.display = 'none';
     this.dropdown.style.width = '100%';
     this.dropdown.style.position = 'absolute';
@@ -66,7 +67,7 @@ class MultiselectWebcomponent extends HTMLElement {
     const item = document.createElement('div');
     item.style.userSelect = 'none';
     item.style.webkitUserSelect = 'none';
-    item.className = `multiselect-selecteditem ${this.getAttribute('selecteditem') || ''}`;
+    item.className = `msw-selecteditem ${this.getAttribute('selecteditem') || ''}`;
     item.innerHTML = option.textContent as string;
     item.dataset.value = option.value;
     item.addEventListener('click', (e) => this.onSelectedClick(e));
@@ -74,10 +75,13 @@ class MultiselectWebcomponent extends HTMLElement {
   }
 
   private buildDropdownItem(option: HTMLOptionElement): HTMLDivElement {
+    if (this.getAttribute('item')) {
+      console.warn('[MultiSelectWebcomponent]: Use of attribute "item" is deprecated - it shall be removed in next versions. Use "dropdownitem" instead.');
+    }
     const item = document.createElement('div');
     item.style.userSelect = 'none';
     item.style.webkitUserSelect = 'none';
-    item.className = `multiselect-item ${this.getAttribute('item') || ''}`;
+    item.className = `msw-dropdownitem ${this.getAttribute('dropdownitem') || this.getAttribute('item') || ''}`;
     item.innerHTML = option.textContent as string;
     item.dataset.value = option.value;
     item.addEventListener('click', (e) => this.onItemClick(e));
@@ -139,7 +143,7 @@ class MultiselectWebcomponent extends HTMLElement {
     if (this.dropdown.innerHTML !== '') {
       this.buttons.appendChild(this.buildSelectAllButton());
     }
-    if (this.selected.querySelectorAll('.multiselect-selecteditem').length > 0) {
+    if (this.selected.querySelectorAll('.msw-selecteditem').length > 0) {
       this.buttons.appendChild(this.buildClearButton());
     }
     this.dispatchEvent(new Event('change'));
