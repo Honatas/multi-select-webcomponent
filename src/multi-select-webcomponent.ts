@@ -28,7 +28,7 @@ class MultiselectWebcomponent extends HTMLElement {
 
     // Buttons
     this.buttons.style.display = 'flex';
-    
+
     // Dropdown
     this.dropdown.className = `msw-dropdown ${this.getAttribute('dropdown') || ''}`;
     this.dropdown.style.display = 'none';
@@ -36,7 +36,7 @@ class MultiselectWebcomponent extends HTMLElement {
     this.dropdown.style.position = 'absolute';
     this.dropdown.style.zIndex = '2';
     this.dropdown.addEventListener('click', () => this.onDropdownClick());
-    
+
     // Structure
     this.style.display = 'flex';
     this.style.alignItems = 'center';
@@ -52,7 +52,7 @@ class MultiselectWebcomponent extends HTMLElement {
     // Build
     this.build();
   }
-  
+
   get value(): string[] | undefined {
     const ret = [];
     for (const option of this.options) {
@@ -96,12 +96,12 @@ class MultiselectWebcomponent extends HTMLElement {
     if (buttonClass != null) {
       button.className = buttonClass;
     }
-    if (buttonSpanClass != null) {
+    if (buttonSpanClass == null) {
+      button.textContent = 'C';
+    } else {
       const span = document.createElement('span');
       span.className = buttonSpanClass;
       button.appendChild(span);
-    } else {
-      button.textContent = 'C';
     }
     button.title = buttonTitle ? buttonTitle : 'Clear Selection';
     button.addEventListener('click', (e) => this.onClearClick(e));
@@ -116,12 +116,12 @@ class MultiselectWebcomponent extends HTMLElement {
     if (buttonClass != null) {
       button.className = buttonClass;
     }
-    if (buttonSpanClass != null) {
+    if (buttonSpanClass == null) {
+      button.textContent = 'A';
+    } else {
       const span = document.createElement('span');
       span.className = buttonSpanClass;
       button.appendChild(span);
-    } else {
-      button.textContent = 'A';
     }
     button.title = buttonTitle ? buttonTitle : 'Select All';
     button.addEventListener('click', (e) => this.onSelectAllClick(e));
@@ -164,7 +164,7 @@ class MultiselectWebcomponent extends HTMLElement {
     this.searchbox.value = '';
     this.build();
   }
-  
+
   private onItemClick(e: Event): void {
     this.chooseOption(this.findOptionByValue((e.currentTarget as HTMLElement).dataset.value));
   }
