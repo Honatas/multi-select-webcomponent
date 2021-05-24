@@ -8,7 +8,7 @@
 
 A fully styleable multiselect with no polyfills.
 
-[Live demo ↗](https://jsfiddle.net/Honatas/k2fsy4Lc/28)
+[Live demo ↗](https://jsfiddle.net/Honatas/k2fsy4Lc/29)
 
 ## Install
 
@@ -66,7 +66,7 @@ Tag attribute             |CSS class                     | Target               
 **selectallbutton**       |**.msw-selectallbutton**      | "Select All" button                    |
 **selectallbuttonspan**   |**.msw-selectallbuttonspan**  | "Select All" button's inner span       |
   
-So, if you want to add classes to every item that shows when you click the component, you can either add the attribute **dropdownitem** to your tag and populate it with css classes of your own or from whichever lib you are using, or create the **.msw-dropdownitem** class on your own css file. You can see a neatly styled example using [Bootstrap 5](https://getbootstrap.com) on the [Live demo](https://jsfiddle.net/Honatas/k2fsy4Lc/28).
+So, if you want to add classes to every item that shows when you click the component, you can either add the attribute **dropdownitem** to your tag and populate it with css classes of your own or from whichever lib you are using, or create the **.msw-dropdownitem** class on your own css file. You can see a neatly styled example using [Bootstrap 5](https://getbootstrap.com) on the [Live demo](https://jsfiddle.net/Honatas/k2fsy4Lc/29).
 
 Also, if you need to change the default titles for the buttons, you can add the following tag attributes:
 
