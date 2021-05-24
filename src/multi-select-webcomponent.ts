@@ -14,7 +14,7 @@ class MultiselectWebcomponent extends HTMLElement {
 
     // Search input
     this.searchbox.type = 'text';
-    this.searchbox.className = 'msw-searchbox';
+    this.searchbox.className = `msw-searchbox ${this.getAttribute('searchbox') || ''}`;
     this.searchbox.style.flexGrow = '1';
     this.searchbox.style.border = '0';
     this.searchbox.style.outline = 'none';
@@ -89,40 +89,34 @@ class MultiselectWebcomponent extends HTMLElement {
   }
 
   private buildClearButton(): HTMLButtonElement {
-    const buttonTitle = this.getAttribute('clearbuttontitle');
-    const buttonClass = this.getAttribute('clearbutton');
-    const buttonSpanClass = this.getAttribute('clearbuttonspan');
     const button = document.createElement('button');
-    if (buttonClass != null) {
-      button.className = buttonClass;
-    }
+    button.className = `msw-clearbutton ${this.getAttribute('clearbutton') || ''}`;
+    const buttonSpanClass = this.getAttribute('clearbuttonspan');
     if (buttonSpanClass == null) {
       button.textContent = 'C';
     } else {
       const span = document.createElement('span');
-      span.className = buttonSpanClass;
+      span.className = `msw-clearbuttonspan ${buttonSpanClass}`;
       button.appendChild(span);
     }
+    const buttonTitle = this.getAttribute('clearbuttontitle');
     button.title = buttonTitle ? buttonTitle : 'Clear Selection';
     button.addEventListener('click', (e) => this.onClearClick(e));
     return button;
   }
 
   private buildSelectAllButton(): HTMLButtonElement {
-    const buttonTitle = this.getAttribute('selectallbuttontitle');
-    const buttonClass = this.getAttribute('selectallbutton');
-    const buttonSpanClass = this.getAttribute('selectallbuttonspan');
     const button = document.createElement('button');
-    if (buttonClass != null) {
-      button.className = buttonClass;
-    }
+    button.className = `msw-selectallbutton ${this.getAttribute('selectallbutton') || ''}`;
+    const buttonSpanClass = this.getAttribute('selectallbuttonspan');
     if (buttonSpanClass == null) {
       button.textContent = 'A';
     } else {
       const span = document.createElement('span');
-      span.className = buttonSpanClass;
+      span.className = `msw-selectallbuttonspan ${buttonSpanClass}`;
       button.appendChild(span);
     }
+    const buttonTitle = this.getAttribute('selectallbuttontitle');
     button.title = buttonTitle ? buttonTitle : 'Select All';
     button.addEventListener('click', (e) => this.onSelectAllClick(e));
     return button;

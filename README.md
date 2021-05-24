@@ -3,7 +3,7 @@
 [![GitHub](https://img.shields.io/github/license/honatas/multi-select-webcomponent?style=plastic)](https://github.com/Honatas/multi-select-webcomponent "View this project on GitHub")
 [![npm](https://img.shields.io/npm/v/@honatas/multi-select-webcomponent?style=plastic)](https://npmjs.org/package/@honatas/multi-select-webcomponent "View this project on npm")
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=plastic)](https://www.webcomponents.org/element/@honatas/multi-select-webcomponent)
-[![typescript](https://img.shields.io/badge/made%20with-Typescript-blue?style=plastic)](https://www.typescriptlang.org/ "Try Typescript")
+[![typescript](https://img.shields.io/badge/coded%20in-Typescript-blue?style=plastic)](https://www.typescriptlang.org/ "Try Typescript")
 [![coffee](https://img.shields.io/badge/buy%20me%20a-coffee-brown?style=plastic)](https://ko-fi.com/honatas "Buy me a coffee")
 
 A fully styleable multiselect with no polyfills.
@@ -41,31 +41,40 @@ At first, you'll have to register the component with your application. I chose t
 After that you can use the newly defined tag **multi-select** wherever you want on your html. The tag works the same as the **select** tag:
 
 ```html
-  <multi-select id="planetId">
+  <multi-select id="planetIds">
     <option id="1">Mercury</option>
     <option id="2">Venus</option>
     <option id="3">Earth</option>
   </multi-select>
 ```
 
-## But wait!
+## Styling
 
-In order to be fully styleable, this WebComponent ships with **no style at all!** If you just copy/paste the code above, your component will look ... well, unstylish. Use the following tag attributes to add style to your component:  
+In order to be fully styleable, this WebComponent ships with **no style at all!** If you just copy/paste the code above, your component will look ... well, unstylish.  
 
-Attribute                     | Target                                    |
-------------------------------|-------------------------------------------|
-**selected**                  | Selected items box                        |
-**selecteditem**              | Selected item                             |
-**dropdown**                  | Dropdown box                              |
-**item**                      | Dropdown item                             |
-**clearbutton**               | "Clear Selection" button                  |
-**clearbuttonspan**           | "Clear Selection" button's inner span     |
-**clearbuttontitle**          | "Clear Selection" button's title          |
-**selectallbutton**           | "Select All" button                       |
-**selectallbuttonspan**       | "Select All" button's inner span          |
-**selectallbuttontitle**      | "Select All" button's title               |
+To add style to your component, you can either add attributes to your tag or create css classes:
 
-With exception of **clearbuttontitle** and **selectallbuttontitle**, all other attributes values are transcribed to the **class** attribute of their targets. This means if you want to add classes to every item that shows when you click the component, add the attribute **item** to your tag and populate it with css classes of your own or from whichever lib you are using. You can see a fully styled example using [Bootstrap 5](https://getbootstrap.com/) on the [Live demo](https://jsfiddle.net/Honatas/k2fsy4Lc/19/).
+Tag attribute             |CSS class                     | Target                                 |
+--------------------------|------------------------------|----------------------------------------|
+**selected**              |**.msw-selected**             | Selected items box                     |
+**selecteditem**          |**.msw-selecteditem**         | Selected item                          |
+**dropdown**              |**.msw-dropdown**             | Dropdown box                           |
+**dropdownitem**          |**.msw-dropdownitem**         | Dropdown item                          |
+**searchbox**             |**.msw-searchbox**            | Search input field                     |
+**clearbutton**           |**.msw-clearbutton**          | "Clear Selection" button               |
+**clearbuttonspan**       |**.msw-clearbuttonspan**      | "Clear Selection" button's inner span  |
+**selectallbutton**       |**.msw-selectallbutton**      | "Select All" button                    |
+**selectallbuttonspan**   |**.msw-selectallbuttonspan**  | "Select All" button's inner span       |
+  
+So, if you want to add classes to every item that shows when you click the component, you can either add the attribute **dropdownitem** to your tag and populate it with css classes of your own or from whichever lib you are using, or create the **.msw-dropdownitem** class on your own css file. You can see a neatly styled example using [Bootstrap 5](https://getbootstrap.com) on the [Live demo](https://jsfiddle.net/Honatas/k2fsy4Lc/19).
+
+Also, if you need to change the default titles for the buttons, you can add the following tag attributes:
+
+Tag attribute             | Target                            |
+--------------------------|-----------------------------------|
+**clearbuttontitle**      | "Clear Selection" button's title  |
+**selectallbuttontitle**  | "Select All" button's title       |
+
 
 ## Older browsers warning
 
