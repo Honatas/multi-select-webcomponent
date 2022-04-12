@@ -45,9 +45,17 @@ export default class MultiselectWebcomponent extends HTMLElement {
     this.appendChild(this.selected);
     this.appendChild(this.buttons);
     this.parentNode?.insertBefore(this.dropdown, this.nextSibling);
+
     // Events
     this.addEventListener('click', () => this.onMultiselectClick());
     this.parentElement?.addEventListener('mouseleave', () => this.dropdown.style.display = 'none');
+
+    // Attributes
+    this.searchbox.placeholder = this.getAttribute('placeholder') || '';
+    const disabled = this.getAttribute('disabled');
+    if (disabled && disabled !== 'false') {
+      this.searchbox.disabled = true;
+    }
 
     // Build
     this.build();
@@ -64,7 +72,30 @@ export default class MultiselectWebcomponent extends HTMLElement {
   }
 
   set disabled(value: boolean) {
+    this.setAttribute('disabled', value ? 'true' : 'false');
     this.searchbox.disabled = value;
+    this.build();
+  }
+
+  get disabled(): boolean {
+    const disabled = this.getAttribute('disabled');
+    if (disabled && disabled !== 'false') {
+      return true;
+    }
+    return false;
+  }
+
+  set placeholder(value: string) {
+    this.setAttribute('placeholder', value);
+    this.searchbox.placeholder = value;
+  }
+
+  get placeholder(): string {
+    return this.getAttribute('placeholder') as string;
+  }
+
+  public clear(): void {
+    this.options = [];
     this.build();
   }
 
@@ -96,7 +127,7 @@ export default class MultiselectWebcomponent extends HTMLElement {
     item.className = `msw-selecteditem ${this.getAttribute('selecteditem') || ''}`;
     item.innerHTML = option.textContent as string;
     item.dataset.value = option.value;
-    if (!this.searchbox.disabled) {
+    if (!this.disabled) {
       item.addEventListener('click', (e) => this.onSelectedClick(e));
     }
     return item;
@@ -130,7 +161,7 @@ export default class MultiselectWebcomponent extends HTMLElement {
     const buttonTitle = this.getAttribute('clearbuttontitle');
     button.title = buttonTitle ? buttonTitle : 'Clear Selection';
     button.addEventListener('click', (e) => this.onClearClick(e));
-    button.disabled = this.searchbox.disabled;
+    button.disabled = this.disabled;
     return button;
   }
 
@@ -148,7 +179,7 @@ export default class MultiselectWebcomponent extends HTMLElement {
     const buttonTitle = this.getAttribute('selectallbuttontitle');
     button.title = buttonTitle ? buttonTitle : 'Select All';
     button.addEventListener('click', (e) => this.onSelectAllClick(e));
-    button.disabled = this.searchbox.disabled;
+    button.disabled = this.disabled;
     return button;
   }
 
@@ -198,7 +229,7 @@ export default class MultiselectWebcomponent extends HTMLElement {
   }
 
   private onMultiselectClick(): void {
-    if (this.searchbox.disabled === true) return;
+    if (this.disabled === true) return;
     this.dropdown.style.display = 'block';
     this.searchbox.focus();
   }

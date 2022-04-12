@@ -90,6 +90,31 @@ msw.options.push(pluto);
 msw.build();
 ```
 
+## Properties
+
+**value: string[]**  
+&nbsp;&nbsp;&nbsp;&nbsp;
+Returns all of the selected Options values in an array.  
+
+**disabled: boolean**  
+&nbsp;&nbsp;&nbsp;&nbsp;
+Sets and reads the disabled property of this element.
+
+**options: HTMLOptionElement[]**  
+&nbsp;&nbsp;&nbsp;&nbsp;
+Array of options. You can read or modify its contents at will, but changes will only apply after a call to **build()**.
+
+
+## Methods
+
+**build(): void**  
+&nbsp;&nbsp;&nbsp;&nbsp;
+Applies changes to the element.
+
+**clear(): void**  
+&nbsp;&nbsp;&nbsp;&nbsp;
+Removes all options and calls **build()** immediately.
+
 
 ## Older browsers warning
 
