@@ -94,7 +94,7 @@ msw.build();
 
 **value: string[]**  
 &nbsp;&nbsp;&nbsp;&nbsp;
-Returns all of the selected Options values in an array.  
+The value property of this component is an array of strings containing the values of the selected Option elements.  
 
 **disabled: boolean**  
 &nbsp;&nbsp;&nbsp;&nbsp;

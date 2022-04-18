@@ -11,6 +11,7 @@ export default class MultiselectWebcomponent extends HTMLElement {
 
     // Keeping options
     this.querySelectorAll('option').forEach(option => this.options.push(option.cloneNode(true) as HTMLOptionElement));
+    this.setValuesOnConstructor(this.getAttribute('value'));
 
     // Search input
     this.searchbox.type = 'text';
@@ -61,7 +62,34 @@ export default class MultiselectWebcomponent extends HTMLElement {
     this.build();
   }
 
-  get value(): string[] | undefined {
+  set value(value: string[]) {
+    for (const option of this.options) {
+      option.selected = false;
+    }
+    if (!value || value.length == 0) {
+      return;
+    }
+    for (const option of this.options) {
+      if (value.includes(option.value)) {
+        option.selected = true;
+      }
+    }
+    this.build();
+  }
+
+  private setValuesOnConstructor(value: string | null): void {
+    if (!value) {
+      return;
+    }
+    const values = value.split(',');
+    for (const option of this.options) {
+      if (values.includes(option.value)) {
+        option.selected = true;
+      }
+    }
+  }
+
+  get value(): string[] {
     const ret = [];
     for (const option of this.options) {
       if (option.selected) {
