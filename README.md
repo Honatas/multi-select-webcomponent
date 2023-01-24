@@ -78,7 +78,7 @@ Tag attribute             | Target                            |
 
 ## Options
 
-You may realize that as soon as you render the component, your **option** tags will be removed from the DOM. This is desired, since other elements are going to be rendered in substitution to them. However, internal control is still made using those tags, so they are kept int memory and you can access them through javascprit. In the example above we create another option and add it to the component:
+You may realize that as soon as you render the component, your **option** tags will be removed from the DOM. This is desired, since other elements are going to be rendered in substitution to them. However, internal control is still made using those tags, so they are kept int memory and you can access them through javascript. In the example above we create another option and add it to the component:
 
 ```javascript
 const pluto = document.createElement('option');
